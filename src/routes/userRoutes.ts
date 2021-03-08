@@ -1,27 +1,30 @@
+import { API_URL } from '@config/index';
 import { UserController } from '@controller/UserController';
+
+const path = `${API_URL}users`;
 
 export const userRoutes = [
   {
     method: 'get',
-    route: '/users',
+    route: path,
     controller: UserController,
     action: 'all',
   },
   {
     method: 'get',
-    route: '/users/:id',
+    route: `${path}/:id`,
     controller: UserController,
     action: 'one',
   },
   {
     method: 'post',
-    route: '/users',
+    route: path,
     controller: UserController,
     action: 'save',
   },
   {
     method: 'delete',
-    route: '/users/:id',
+    route: `${path}/:id`,
     controller: UserController,
     action: 'remove',
   },

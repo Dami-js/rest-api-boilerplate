@@ -3,11 +3,12 @@ import express from 'express';
 import { Application } from 'express';
 import { initRoutes } from '@routes/initRoutes';
 import { initMiddlewares } from './middlewares';
-import postgresdb from '@db/postgresdb';
 import { PORT } from './config';
+import useDatabase from './db';
 
 async function bootstrap() {
-  await postgresdb();
+  // initialize database
+  useDatabase();
 
   // create express app
   const app: Application = express();
